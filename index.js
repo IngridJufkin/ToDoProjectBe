@@ -4,16 +4,12 @@ const app = express()
 const bodyParser = require('body-parser')
 const port = 3001
 const router = require('./src/router')
-
+const cors = require('cors')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-}); //turvalisuse asi, et laseks suhelda 2 erineva domeeni jaoks, annab accessi saadab headerisse info, tavaliselt tehakse npm cors ja installitakse
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hakkama said!')

@@ -4,16 +4,18 @@ const Done = db.Done;
 
 module.exports = async function (req, res) {
   try {
-    if (req.params.toTask === "todo") {
-      const task = await Done.findOne({ _id: req.params.id }).lean().exec();
-      await Done.deleteOne(task);
+    const toDoTask = await Done.findById({ _id: req.body._id }).lean().exec();
+    //paramsi id kätte ei saa, see tuleb urlist, aga urlis ei ole midagi
+    //if (req.params.toTask === "todo") {
+    if (toDoTask !== null) {
+      await Done.deleteOne(toDoTask);
     }
-    if (req.params.toTask === "done") {
-      const task = await Todo.findOne({ _id: req.params.id })
-        .limit(100)
-        .lean()
-        .exec();
-      await Todo.deleteOne(task);
+    const doneTask = await Todo.findById({ _id: req.body._id })
+    .limit(100)
+    .lean()
+    .exec();
+    if (doneTask !== null) {
+      await Todo.deleteOne(doneTask);
     }
     res.status(200).json({ message: "Success Delete" });
   } catch (error) {
