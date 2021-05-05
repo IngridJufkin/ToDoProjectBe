@@ -8,4 +8,5 @@ module.exports = {
   deleteTodoTask: require("./deleteTodoTask.controller"),
   deleteTask: require("./deleteTask.controller"),
   getTasksByName: require("./getTasksByName.controller"),
+  downloadFile: require("./downloadFile.controller"),
 };
