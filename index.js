@@ -9,7 +9,7 @@ const cors = require('cors')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use(cors());
+app.use(cors()); //backend lubaks front endile , turvalisuse värk
 
 app.get('/', (req, res) => {
   res.send('Hakkama said!')
