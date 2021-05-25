@@ -18,5 +18,5 @@ app.get('/', (req, res) => {
 app.use('/api', router)
 
 app.listen(process.env.PORT || port, () => {
-  console.log("Server is running")
+  console.log(`Server is running ${port}`)
  }) //heroku valib enda pordi, võtame env failist selle pordi, kui seal ei ole siis võtab automaatselt pordi  
