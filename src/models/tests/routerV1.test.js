@@ -24,16 +24,16 @@ describe('router', () => { //kasutas seda ruuterit
   });
 
   test('should test POST createTask', () => {
-    expect(spy).toHaveBeenNthCalledWith(5, '/createTask', createTask); 
+    expect(spy).toHaveBeenNthCalledWith(6, '/createTask', createTask); 
   });
 
   test('should test DELETE tasks', () => {
-    expect(spy).toHaveBeenNthCalledWith(9, '/deleteTask', deleteTask);
+    expect(spy).toHaveBeenNthCalledWith(10, '/deleteTask', deleteTask);
   });
 
   //All router number
   test('should test ALL tasks', () => {
-    expect(spy).toHaveBeenCalledTimes(10);
+    expect(spy).toHaveBeenCalledTimes(11);
   });
 
  //Only router GET tasks 
