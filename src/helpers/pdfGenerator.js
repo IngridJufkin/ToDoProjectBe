@@ -24,14 +24,14 @@ module.exports = async function (result, res) {
             headStyles: { fillColor: [120, 205, 0] },
             didParseCell(Hookdata) {
                 if (Hookdata.column.dataKey === 'priority') {
-                    Hookdata.cell.text = [(Hookdata.cell.raw).charAt(0) + (Hookdata.cell.raw).toLowerCase().slice(1) ]
+                    Hookdata.cell.text = [(Hookdata.cell.raw).charAt(0) + (Hookdata.cell.raw).toLowerCase().slice(1)]
                 }
-                if (Hookdata.column.dataKey === 'date') {
-                    let date = Hookdata.cell.raw;
+                if (Hookdata.column.dataKey === "date" && Hookdata.cell.raw != "Date") {
+                    let date = new Date(Hookdata.cell.raw);                     
+                    console.log('Todo '+ date);
                     Hookdata.cell.text = [date.getDate().toString().padStart(2, '0')  + "." + date.getMonth().toString().padStart(2, '0') + "." + date.getFullYear()];
                 }
             },
-            //columnStyles: { priority: { halign: 'center', fillColor: [1, 255, 0] } },
             didDrawPage(HookData) {
                 console.log(HookData.priority);
                 return HookData.table;
@@ -50,11 +50,11 @@ module.exports = async function (result, res) {
             headStyles: { fillColor: [120, 205, 0] },
             didParseCell(Hookdata) {
                 if (Hookdata.column.dataKey === 'priority') {
-                    Hookdata.cell.text = [(Hookdata.cell.raw).toLowerCase()]
+                    Hookdata.cell.text = [(Hookdata.cell.raw).charAt(0) + (Hookdata.cell.raw).toLowerCase().slice(1)]
                 }
-                if (Hookdata.column.dataKey === 'date') {
-                    let date = Hookdata.cell.raw;
-                    Hookdata.cell.text = [date.getDate().toString().padStart(2, '0')  + "." + date.getMonth().toString().padStart(2, '0') + "." + date.getFullYear()];
+                if (Hookdata.column.dataKey === "date" && Hookdata.cell.raw != "Date") {
+                    let date = new Date(Hookdata.cell.raw);
+                   Hookdata.cell.text = [date.getDate().toString().padStart(2, '0')  + "." + date.getMonth().toString().padStart(2, '0') + "." + date.getFullYear()];
                 }
             },
             didDrawPage(HookData) {
@@ -77,8 +77,6 @@ module.exports = async function (result, res) {
             ['Done', doneLenght],
         ],
     })
-
-
 
     res.setHeader(
         "Content-Disposition",
