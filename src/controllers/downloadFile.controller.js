@@ -10,6 +10,7 @@ module.exports = async function (req, res) {
     const result = {
       todoTasks: req.body.todo ? await Todo.find({}).lean().exec() : [],
       doneTasks: req.body.done ? await Done.find({}).lean().exec() : []
+      
     }
 
     if (req.body.fileType === 'XLSX') {
