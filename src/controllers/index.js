@@ -3,6 +3,7 @@ module.exports = {
   getTodoTasks: require("./getTodoTasks.controller"),
   getDoneTasks: require("./getDoneTasks.controller"),
   getAllTasks: require("./getAllTasks.controller"),
+  getAllUsers: require("./getAllUsers.controller"),
   moveTask: require("./moveTask.controller"),
   deleteDoneTask: require("./deleteDoneTask.controller"),
   deleteTodoTask: require("./deleteTodoTask.controller"),

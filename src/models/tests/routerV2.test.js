@@ -17,8 +17,8 @@ describe('router', () => {
 
   require('../../router');
 
-  test('should call get method 5 times', () => {
-    expect(getSpy).toHaveBeenCalledTimes(5);
+  test('should call get method 6 times', () => {
+    expect(getSpy).toHaveBeenCalledTimes(6);
 
   });
 

@@ -5,6 +5,7 @@ const {
   getTodoTasks,
   getDoneTasks,
   getAllTasks,
+  getAllUsers,
   createTask,
   moveTask,
   deleteDoneTask,
@@ -17,6 +18,7 @@ const {
 router.get("/all-tasks", getAllTasks);
 router.get("/todo-tasks", getTodoTasks);
 router.get("/done-tasks", getDoneTasks);
+router.get("/all-users", getAllUsers);
 //id is mongo object _id and toTask is todo or done
 router.get("/moveTask/:id/:toTask", moveTask);
 router.post("/createTask", createTask);
